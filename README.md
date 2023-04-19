@@ -32,3 +32,15 @@ Start time: 3:50pm
 Finish time: 5:24pm
 
 Actual time needed to complete: 94min
+
+## Feature 2
+
+Name of feature: Integration of Map
+
+Estimate of time needed to complete: 60min
+
+Start time: 7:15pm
+
+Finish time: 8:20pm
+
+Actual time needed to complete: 65min
