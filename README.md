@@ -44,3 +44,15 @@ Start time: 7:15pm
 Finish time: 8:20pm
 
 Actual time needed to complete: 65min
+
+## Feature 3
+
+Name of feature: Error Handling
+
+Estimate of time needed to complete: 60min
+
+Start time: 8:30pm
+
+Finish time: 9:20pm
+
+Actual time needed to complete: 50min
