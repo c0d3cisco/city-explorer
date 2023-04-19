@@ -13,11 +13,19 @@ export default class cityDataForm extends Component {
 
   getCityData = async (evt) => {
     evt.preventDefault();
-    let urlData = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATION_API_KEY}&q=${this.state.city}&format=json`;
-    let cityData = await axios.get(urlData);
 
-    // console.log(cityData.data[0]);
-    this.props.onSubmitHandler(cityData.data[0]);
+    try {
+      let urlData = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATION_API_KEY}&q=${this.state.city}&format=json`;
+      let cityData = await axios.get(urlData);
+  
+      // console.log(cityData.data[0]);
+      this.props.onSubmitHandler(cityData.data[0]);
+      this.props.noErrorDetected();
+
+    } catch(error) {
+      console.log(error);
+      this.props.onError(error);
+    }
   };
   render() {
     return (

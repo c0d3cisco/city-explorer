@@ -3,19 +3,22 @@ import CityDataForm from './CityDataForm';
 import MapContainer from './MapContainer';
 
 
+
 class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
             city: '',
-            cityData: []
+            cityData: [],
         }
     }
 
     handleCityInput = (cityDataInput) => {
-
+        
         this.setState({ cityData: cityDataInput });
+        
     };
+    
 
 
     render() {
@@ -23,10 +26,15 @@ class Main extends Component {
             <>
                 <div className='weatherContainer'>
                     <div>
-                        <CityDataForm onSubmitHandler={this.handleCityInput}></CityDataForm>
-                        <p>Name: {this.state.cityData.display_name}</p>
-                        <p>Lat: {this.state.cityData.lat}</p>
-                        <p>Lon: {this.state.cityData.lon}</p>
+                        <CityDataForm onSubmitHandler={this.handleCityInput} noErrorDetected={this.props.noErrorDetected} onError={this.props.captureErrorHandler}></CityDataForm>
+                        {
+                            this.props.error
+                                ? <p>Error:<br/><br/>{this.props.errorMessage}</p>
+                                : <>
+                                    <p>Name: {this.state.cityData.display_name}</p>
+                                    <p>Latitude: {this.state.cityData.lat}</p>
+                                    <p>Longitude: {this.state.cityData.lon}</p>
+                                </>}
                     </div>
                     <MapContainer cityInfo={this.state.cityData}></MapContainer>
                 </div>
