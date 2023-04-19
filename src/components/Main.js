@@ -8,14 +8,14 @@ class Main extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            city: '',
-            cityData: [],
+            // city: '',
+            cityDataArr: [], //will be condenced array descriptions and dates
         }
     }
 
     handleCityInput = (cityDataInput) => {
         
-        this.setState({ cityData: cityDataInput });
+        this.setState({ cityDataArr: cityDataInput });
         
     };
     
@@ -31,12 +31,12 @@ class Main extends Component {
                             this.props.error
                                 ? <p>Error:<br/><br/>{this.props.errorMessage}</p>
                                 : <>
-                                    <p>Name: {this.state.cityData.display_name}</p>
-                                    <p>Latitude: {this.state.cityData.lat}</p>
-                                    <p>Longitude: {this.state.cityData.lon}</p>
+                                    <p>Name: {this.state.cityDataArr.display_name}</p>
+                                    <p>Latitude: {this.state.cityDataArr.lat}</p>
+                                    <p>Longitude: {this.state.cityDataArr.lon}</p>
                                 </>}
                     </div>
-                    <MapContainer cityInfo={this.state.cityData}></MapContainer>
+                    <MapContainer cityInfo={this.state.cityDataArr}></MapContainer>
                 </div>
             </>
         );

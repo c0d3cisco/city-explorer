@@ -56,3 +56,15 @@ Start time: 8:30pm
 Finish time: 9:20pm
 
 Actual time needed to complete: 50min
+
+## Feature 4
+
+Name of feature: Connection to Live Server
+
+Estimate of time needed to complete: 30min
+
+Start time: 8:20am
+
+Finish time: 9:47am
+
+Actual time needed to complete: 50min
