@@ -42,6 +42,7 @@ class Main extends Component {
                             noErrorDetected={this.props.noErrorDetected}
                             onError={this.props.captureErrorHandler}>
                         </CityDataForm>
+                        
                         {this.props.error
                             ? <p>Error:<br /><br />{this.props.errorMessage}</p>
                             : <>
