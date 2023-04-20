@@ -11,7 +11,7 @@ p, footer, h1{
 }
 
 
-.weatherContainer{
+.weatherContainer, .uiContainer{
   margin: auto;
   display: flex;
   justify-content: center;
@@ -29,7 +29,7 @@ p, footer, h1{
 }
 
 .imageMap{
-  width: 100%;
+  width: 25em;
 }
 
 .textBoxForm {

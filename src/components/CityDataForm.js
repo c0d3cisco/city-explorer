@@ -18,28 +18,45 @@ export default class cityDataForm extends Component {
     try {
       let urlData = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATION_API_KEY}&q=${this.state.city}&format=json`;
       let cityData = await axios.get(urlData);
-  
-      console.log(cityData.data[0]);
-      this.props.onSubmitHandler(cityData.data[0]);
-      this.props.noErrorDetected();
-    } 
-    catch(error) {
-      console.log('error: ',error);
-      this.props.onError(error);
-    }
 
-    try{ 
-      let urlWeather = `http://localhost:3001/weather?cityName=${this.state.city}`;
-      let urlWeatherNOTWORKING = `${process.env.REACT_APP_SERVER}/weather?cityName=${this.state.city}`;
-      let weatherData = await axios.get(urlWeather);
-      console.log(weatherData.data);
-      console.log('URL that does not work => ',urlWeatherNOTWORKING);
+      //golgi apparatus
+      console.log('cityData.data[0]: ', cityData.data[0].lat);
+      this.props.noErrorDetected();
+      this.handleWeatherAPI(cityData.data[0]);
+      this.handleMovieAPI(this.state.city);
+      this.props.onSubmitHandler('cityDataArr',cityData.data[0]);
     } 
     catch(error) {
       console.log('error: ',error);
       this.props.onError(error);
     }
   };
+
+
+  handleWeatherAPI = async (cityArr) => {
+    try{ 
+      let urlWeather = `${process.env.REACT_APP_SERVER}/weather?lat=${parseFloat(cityArr.lat)}&lon=${parseFloat(cityArr.lon)}`;
+      let weatherData = await axios.get(urlWeather);
+      console.log(weatherData.data);
+      this.props.onSubmitHandler('weather16Arr',weatherData.data);
+    } 
+    catch(error) {
+      console.log('error: ',error);
+      this.props.onError(error);
+    }
+  };
+
+  handleMovieAPI = async (city) => {
+    try {
+      let urlMovie = `${process.env.REACT_APP_SERVER}/movie?cityName=${city}`
+      let movieData = await axios.get(urlMovie);
+      console.log(movieData.data);
+      this.props.onSubmitHandler('movieSearch',movieData.data);
+
+    } catch (error) {
+      this.props.onError(error);
+    }
+  }
 
   render() {
     return (
