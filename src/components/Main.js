@@ -2,7 +2,7 @@ import { Component } from 'react';
 import CityDataForm from './CityDataForm';
 import MapContainer from './MapContainer';
 import WeatherUI from './WeatherUI';
-import MovieUI from './MovieUI';
+import MovieListUI from './MovieListUI';
 
 
 
@@ -42,7 +42,7 @@ class Main extends Component {
                             noErrorDetected={this.props.noErrorDetected}
                             onError={this.props.captureErrorHandler}>
                         </CityDataForm>
-                        
+
                         {this.props.error
                             ? <p>Error:<br /><br />{this.props.errorMessage}</p>
                             : <>
@@ -55,7 +55,7 @@ class Main extends Component {
                 </div>
                 <div className='uiContainer'>
                     <WeatherUI weatherData={this.state.weather16Arr}></WeatherUI>
-                    <MovieUI movieData={this.state.movieSearch}></MovieUI>
+                    <MovieListUI movieData={this.state.movieSearch}></MovieListUI>
                 </div>
             </>
         );

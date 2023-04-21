@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
+import WeatherDayUI from './WeatherDayUI';
 
 
 export default class WeatherUI extends Component {
@@ -9,17 +10,9 @@ export default class WeatherUI extends Component {
 
         console.log(this.props.weatherData);
 
-        let AccordionList = this.props.weatherData.map((weatherDay, idx) => {
-            return (
-                <Accordion.Item eventKey={idx}>
-                    <Accordion.Header>{weatherDay.weatherDate}</Accordion.Header>
-                    <Accordion.Body>
-                        {weatherDay.weatherDescription}
-                    </Accordion.Body>
-                </Accordion.Item>
-            )
-        });
-        console.log(AccordionList);
+        let AccordionList = this.props.weatherData.map((weatherDay, idx) => (
+            <WeatherDayUI weatherDay={weatherDay} idx={idx}/>
+        ));
         return (
             <Accordion>
                 {AccordionList}
