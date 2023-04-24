@@ -2,7 +2,11 @@ html {
   text-align: center;
 }
 
-html, p, div{
+/* *{
+  border: 1px solid black;
+} */
+
+.root{
   background-color: rgb(255, 244, 199);
 }
 
@@ -17,6 +21,24 @@ p, footer, h1{
   justify-content: center;
   margin: 2em;
 }
+
+.uiContainer{
+  max-width: 40em;
+  margin: auto;
+}
+.uiMovie{
+  max-width: 30em;
+}
+
+.uiWeather{
+  max-width: 10em;
+  margin-right: 0.1em;
+  /* font-size: 1vw; */
+  /* font-size: 8px; */
+}
+
+
+
 .weatherContainer div {
   margin-right: 0.25em;  
 }
@@ -25,7 +47,6 @@ p, footer, h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(255, 244, 199);
 }
 
 .imageMap{
@@ -34,4 +55,21 @@ p, footer, h1{
 
 .textBoxForm {
   margin-right: 10px;
+}
+
+*{
+  font-size: 1.2vw;
+}
+
+.carousel-item{
+  position: relative;
+}
+
+.carousel-caption{
+    color: white;
+    text-shadow: 1px 1px 1px black;
+}
+
+.carousel-caption>p{
+  color: white;
 }

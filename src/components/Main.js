@@ -54,8 +54,12 @@ class Main extends Component {
                     <MapContainer cityInfo={this.state.cityDataArr}></MapContainer>
                 </div>
                 <div className='uiContainer'>
-                    <WeatherUI weatherData={this.state.weather16Arr}></WeatherUI>
-                    <MovieListUI movieData={this.state.movieSearch}></MovieListUI>
+                    <div className='uiWeather'>
+                        <WeatherUI weatherData={this.state.weather16Arr}></WeatherUI>
+                    </div>
+                    <div className='uiMovie'>
+                        <MovieListUI movieData={this.state.movieSearch}></MovieListUI>
+                    </div>
                 </div>
             </>
         );
