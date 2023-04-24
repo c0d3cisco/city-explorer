@@ -16,6 +16,7 @@ export default class cityDataForm extends Component {
     evt.preventDefault();
 
     try {
+      // let urlData = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATION_API_KEY}&center=47.6038321,-122.330062&size=600x600&zoom=14&path=fillcolor:%2390EE90|weight:2|color:blue|47.6038321,-122.330062`;
       let urlData = `https://us1.locationiq.com/v1/search?key=${process.env.REACT_APP_LOCATION_API_KEY}&q=${this.state.city}&format=json`;
       let cityData = await axios.get(urlData);
 
